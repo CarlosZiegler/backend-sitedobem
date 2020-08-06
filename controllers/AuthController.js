@@ -8,7 +8,6 @@ module.exports = {
         if (req.user.hasOwnProperty('error')) {
             return res.json({ error: req.user.error })
         }
-
         return res.json({
             message: 'Signup successful',
             user: {
@@ -36,7 +35,7 @@ module.exports = {
                     //Sign the JWT token and populate the payload with the user email and id
                     const token = jwt.sign({ user: body }, jwtSecret.secret);
                     //Send back the token to the user
-                    return res.json({ token });
+                    return res.json({ token, user: body });
                 });
             } catch (error) {
                 return next(error);
