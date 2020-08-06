@@ -70,23 +70,23 @@ routes.delete("/vacancy/delete/:id", passport.authenticate('jwt', { session: fal
 
 /**
  * @swagger
- * /main:
- *  post:
+ * /professionals:
+ *  get:
  *    description: access the route only with valid token
  *       
  */
 routes.get("/professionals", passport.authenticate('jwt', { session: false }), ProfessionalController.index);
 /**
  * @swagger
- * /main:
- *  post:
+ * /professional/:id:
+ *  get:
  *    description: access the route only with valid token
  *       
  */
 routes.get("/professional/:id", passport.authenticate('jwt', { session: false }), ProfessionalController.show);
 /**
  * @swagger
- * /vacancy/create:
+ * /professional/create:
  *  post:
  *    description: access the route only with valid token
  *       
@@ -94,17 +94,17 @@ routes.get("/professional/:id", passport.authenticate('jwt', { session: false })
 routes.post("/professional/create", passport.authenticate('jwt', { session: false }), ProfessionalController.store);
 /**
  * @swagger
- * /vacancy/update:
- *  post:
- *    description: update a vacancy with Id
+ * /professional/update/:id:
+ *  put:
+ *    description: update a Profissional with Id
  *       
  */
 routes.put("/professional/update/:id", passport.authenticate('jwt', { session: false }), ProfessionalController.update);
 /**
  * @swagger
- * /vacancy/update:
- *  post:
- *    description: update a vacancy with Id
+ * /professional/delete/:id:
+ *  delete:
+ *    description: update a Profissional with Id
  *       
  */
 routes.delete("/professional/delete/:id", passport.authenticate('jwt', { session: false }), ProfessionalController.destroy);

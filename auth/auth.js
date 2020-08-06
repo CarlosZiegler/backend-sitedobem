@@ -16,7 +16,7 @@ passport.use('signup', new localStrategy({
         //Send the user information to the next middleware
         return done(null, user);
     } catch (error) {
-        done(error);
+        return done(null, { error });
     }
 }));
 
@@ -30,7 +30,7 @@ passport.use('login', new localStrategy({
         const user = await UserModel.findOne({ email });
         if (!user) {
             //If the user isn't found in the database, return a message
-            return done(null, false, { message: 'User not found' });
+            return done(null, false, { message: 'Wrong Credential' });
         }
         //Validate password and make sure it matches with the corresponding hash stored in the database
         //If the passwords match, it returns a value of true.
