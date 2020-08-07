@@ -7,7 +7,8 @@ const professionalSchema = new Schema({
     location: String,
     userId: {
         type: Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'user',
+        unique: true
     },
     contact: {
         email: {

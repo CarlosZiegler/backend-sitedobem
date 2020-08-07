@@ -1,6 +1,7 @@
 const express = require("express");
 const passport = require('passport');
 const AuthController = require("./controllers/AuthController");
+const UserController = require("./controllers/UserController");
 const VacancyController = require("./controllers/VacancyController");
 const ProfessionalController = require("./controllers/ProfessionalController");
 
@@ -27,6 +28,14 @@ routes.post("/signup", passport.authenticate('signup', { session: false }), Auth
  */
 routes.post("/login", AuthController.index);
 
+/**
+ * @swagger
+ * /main:
+ *  post:
+ *    description: access the route only with valid token
+ *       
+ */
+routes.get("/user", passport.authenticate('jwt', { session: false }), UserController.show);
 /**
  * @swagger
  * /main:
