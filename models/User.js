@@ -22,6 +22,10 @@ const UserSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Vacancy'
     }],
+    professionalProfile: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Professional'
+    }],
     role: {
         type: String,
         enum: ['professional', 'company'],

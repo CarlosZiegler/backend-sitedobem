@@ -4,8 +4,9 @@ module.exports = {
 
     async show(req, res, next) {
         try {
-            const { role, vacancies, _id, email } = await User.findOne({ _id: req.user._id })
-            res.json({ role, vacancies, _id, email })
+            const { role, vacancies, _id, email, professionalProfile } = await User.findOne({ _id: req.user._id }).populate('professionalProfile')
+
+            res.json({ role, vacancies, _id, email, professionalProfile })
         } catch (error) {
             res.status(404).json(error)
         }

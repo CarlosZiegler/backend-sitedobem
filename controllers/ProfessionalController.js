@@ -40,7 +40,7 @@ module.exports = {
                     ...contact, email: req.user.email,
                 }
             })
-            return res.json({ result });
+            return res.json(result);
         } catch (error) {
             console.log(error)
         }

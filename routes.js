@@ -30,15 +30,23 @@ routes.post("/login", AuthController.index);
 
 /**
  * @swagger
- * /main:
- *  post:
+ * /user:
+ *  get:
  *    description: access the route only with valid token
  *       
  */
 routes.get("/user", passport.authenticate('jwt', { session: false }), UserController.show);
 /**
  * @swagger
- * /main:
+ * /user:
+ *  post:
+ *    description: access the route only with valid token
+ *       
+ */
+routes.put("/user/update", passport.authenticate('jwt', { session: false }), UserController.update);
+/**
+ * @swagger
+ * /vacancies:
  *  post:
  *    description: access the route only with valid token
  *       
@@ -46,7 +54,7 @@ routes.get("/user", passport.authenticate('jwt', { session: false }), UserContro
 routes.get("/vacancies", passport.authenticate('jwt', { session: false }), VacancyController.index);
 /**
  * @swagger
- * /main:
+ * /vacancy:
  *  post:
  *    description: access the route only with valid token
  *       
