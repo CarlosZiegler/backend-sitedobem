@@ -13,6 +13,7 @@ beforeEach(() => {
 describe('Testing DB', () => {
   test('Connecting to Db', async () => {
     const connection = await DbConnection()
+    console.log(connection)
     expect(connection).toBe(true);
   });
   test('Try to connect into Db with wrong URI String', async () => {
