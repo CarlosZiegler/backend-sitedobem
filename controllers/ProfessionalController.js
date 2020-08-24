@@ -28,6 +28,7 @@ module.exports = {
             position,
             location,
             contact,
+            isActive,
             userId = req.user._id,
         } = req.body
 
@@ -36,6 +37,7 @@ module.exports = {
                 position,
                 location,
                 userId,
+                isActive,
                 contact: {
                     ...contact, email: req.user.email,
                 }

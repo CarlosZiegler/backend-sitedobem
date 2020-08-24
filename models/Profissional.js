@@ -17,7 +17,8 @@ const professionalSchema = new Schema({
         },
         link: String,
         linkedIn: String,
-    }
+    },
+    isActive: Boolean
 }, {
     timestamps: {
         createdAt: "created_at",
