@@ -5,6 +5,7 @@ const jwtSecret = require('../jwtConfig')
 module.exports = {
     // Create new User account
     async store(req, res, next) {
+
         if (req.user.hasOwnProperty('error')) {
             return res.json({ error: req.user.error })
         }

@@ -8,11 +8,13 @@ const JWTstrategy = require('passport-jwt').Strategy;
 //Create a passport middleware to handle user registration
 passport.use('signup', new localStrategy({
     usernameField: 'email',
-    passwordField: 'password'
-}, async (email, password, done) => {
+    passwordField: 'password',
+    passReqToCallback: true
+}, async (req, email, password, done) => {
     try {
+        const { displayName, role } = req.body
         //Save the information provided by the user to the the database
-        const user = await UserModel.create({ email, password });
+        const user = await UserModel.create({ email, password, displayName, role });
         //Send the user information to the next middleware
         return done(null, user);
     } catch (error) {
