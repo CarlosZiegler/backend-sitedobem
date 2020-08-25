@@ -22,10 +22,11 @@ const UserSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Vacancy'
     }],
-    professionalProfile: [{
+    professionalProfile: {
         type: Schema.Types.ObjectId,
-        ref: 'Professional'
-    }],
+        ref: 'Professional',
+        default: null
+    },
     role: {
         type: String,
         enum: ['professional', 'company'],

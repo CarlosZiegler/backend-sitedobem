@@ -16,6 +16,7 @@ module.exports = {
                 email: req.user.email,
                 role: req.user.role,
                 vacancies: req.user.vacancies,
+                professionalProfile: req.user.professionalProfile,
             },
         });
 
