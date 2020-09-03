@@ -1,4 +1,5 @@
 const Vacancy = require('../models/Vacancy.js')
+const User = require('../models/User.js')
 
 
 module.exports = {
@@ -44,7 +45,11 @@ module.exports = {
                 companyId,
                 contact
             })
-            return res.json({ result });
+
+            const userUpdated = await User.updateOne({ _id: companyId },
+                { vacancies: [...req.user.vacancies, result] })
+
+            return res.json(userUpdated);
         } catch (error) {
             console.log(error)
         }

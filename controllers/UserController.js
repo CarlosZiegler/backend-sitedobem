@@ -4,7 +4,7 @@ module.exports = {
 
     async show(req, res, next) {
         try {
-            const { role, vacancies, _id, email, professionalProfile, displayName } = await User.findOne({ _id: req.user._id }).populate('professionalProfile')
+            const { role, vacancies, _id, email, professionalProfile, displayName } = await User.findOne({ _id: req.user._id }).populate('professionalProfile').populate('vacancies')
 
             res.json({ role, vacancies, _id, email, professionalProfile, displayName })
         } catch (error) {
