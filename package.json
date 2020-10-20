@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "nodejs app.js",
+    "start": "node app.js",
     "test": "jest --forceExit --detectOpenHandles --coverage"
   },
   "dependencies": {
