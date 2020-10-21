@@ -47,11 +47,11 @@ routes.put("/user/update", passport.authenticate('jwt', { session: false }), Use
 /**
  * @swagger
  * /vacancies:
- *  post:
- *    description: access the route only with valid token
+ *  get:
+ *    description: get all vacancies
  *       
  */
-routes.get("/vacancies", passport.authenticate('jwt', { session: false }), VacancyController.index);
+routes.get("/vacancies", VacancyController.index);
 /**
  * @swagger
  * /vacancy:
@@ -59,7 +59,18 @@ routes.get("/vacancies", passport.authenticate('jwt', { session: false }), Vacan
  *    description: access the route only with valid token
  *       
  */
-routes.get("/vacancy/:id", passport.authenticate('jwt', { session: false }), VacancyController.show);
+routes.get("/vacancy/:id", VacancyController.show);
+
+/**
+ * @swagger
+ * /vacancies?search:
+ *  get:
+ *    description: access the route only with valid token
+ *       
+ */
+
+// TODO implements in controller
+routes.get("/vacancies?search=input", VacancyController.show);
 /**
  * @swagger
  * /vacancy/create:

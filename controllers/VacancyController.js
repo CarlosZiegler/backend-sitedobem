@@ -5,6 +5,7 @@ const User = require('../models/User.js')
 module.exports = {
     async index(req, res, next) {
         try {
+            // TODO only find jobs ?
             const vacancies = await Vacancy.find()
             res.json(vacancies)
         } catch (error) {
