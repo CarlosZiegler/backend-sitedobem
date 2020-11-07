@@ -9,6 +9,7 @@
   "private": false,
   "scripts": {
     "start": "node app.js",
+    "server": "nodemon app.js",
     "test": "jest --forceExit --detectOpenHandles --coverage"
   },
   "dependencies": {
